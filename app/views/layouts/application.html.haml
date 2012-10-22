@@ -29,18 +29,23 @@
           .container.nav-collapse
             %ul.nav
               /%li= link_to "Link 1", "/path1"
+            .pull-right
+              - if user_signed_in? 
+                Logged in as 
+                %strong= current_user.email
+                = link_to 'Edit profile', edit_user_registration_path
+                |
+                = link_to "Logout", destroy_user_session_path, method: :delete
+              - else 
+                = link_to "Sign up", new_user_registration_path
+                |
+                = link_to "Login", new_user_session_path
       #flash_message
-        - flash.each do |name, msg|
-          %div{class: "alert alert-#{name == :notice ? "success" : "error"}"}
-            %a.close{"data-dismiss" => "alert"} ×
-            = content_tag :div, msg, id: "flash_#{name}" if msg.is_a?(String)
-
-
+        = bootstrap_flash
     .container
 
       .row
         .span12
-          = bootstrap_flash
           = yield
     
       %footer

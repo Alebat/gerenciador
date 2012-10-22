@@ -40,3 +40,5 @@ gem 'jquery-rails', '2.1.3'
 
 # To use debugger
 # gem 'debugger'
+gem 'hpricot'
+gem 'ruby_parser' 
