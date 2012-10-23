@@ -1,8 +1,10 @@
 Gerenciador::Application.routes.draw do
+  resources :projects
   devise_for :users
 
   root to: "home#index"
 
+  match 'projects/leave_project/:id', to: "projects#leave_project", as: :leave_project
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

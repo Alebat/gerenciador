@@ -1,0 +1,18 @@
+- model_class = Project.new.class
+.page-header
+  %h3= role_project
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:name)
+      %th= t '.actions', default: t("helpers.actions")
+  %tbody
+    - projects.each do |project|
+      %tr
+        %td= link_to project.name, project_path(project)
+        %td
+          - if can? :update, project
+            = link_to t('.edit', default: t("helpers.links.edit")), edit_project_path(project), class: 'btn btn-mini'
+            = link_to "Remove Project", project_path(project), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-mini btn-danger'
+          - else#if can? :update, project
+            = link_to "Leave Project", leave_project_path(id: project.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-mini btn-danger'

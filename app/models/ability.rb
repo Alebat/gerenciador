@@ -11,6 +11,13 @@ class Ability
     #     can :read, :all
     #   end
     #
+    can :create, Project
+
+    can [:read, :update, :destroy], Project, user_id: user.id
+
+    can [:read, :leave_project], Project  do |project|
+      project.collaborators.where(id: user.id).count == 1
+    end
     # The first argument to `can` is the action you are giving the user permission to do.
     # If you pass :manage it will apply to every action. Other common actions here are
     # :read, :create, :update and :destroy.

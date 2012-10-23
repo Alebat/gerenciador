@@ -1,0 +1,6 @@
+.span2
+  .pull-right
+    = link_to "New Project", new_project_path, class: 'btn btn-primary'
+.span10
+  = render partial: "projects/projects_tables", locals:{ projects: @projects_admin, role_project: "My projects" }
+  = render partial: "projects/projects_tables", locals:{ projects: @projects_collaborate, role_project: "Collaborated projects" }

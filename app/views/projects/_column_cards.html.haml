@@ -1,0 +1,5 @@
+.titled-box.span4.rounded{style:"margin-left: 5px;", id: fill_id(title)}
+  .title
+    %h2= title
+  .content
+    = render partial: "cards/card", collection: project.cards.select{|card| card.card_status.status == title}, locals:{project: project}
