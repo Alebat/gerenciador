@@ -3,7 +3,7 @@
   = f.input :code, as: :string
   = f.input :points
   / # = f.input :color
-  = f.input :project_id, as: :hidden, input_html: { value: project.id }
+  = f.input :project_id, as: :hidden, input_html: { value: project.id } 
   = f.input :card_status_id, as: :hidden, input_html: { value: CardStatus.where(status: "To Do").first.id }
   .form-actions
     = f.button :submit, class: 'btn-primary', id: "new_card_submit"

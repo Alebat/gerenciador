@@ -6,7 +6,7 @@
         .pull-right
           = card.points
           .btn-group
-            %a.btn-small.dropdown-toggle{ href: "#", data: { toggle: "dropdown"}}
+            %a.btn-small.dropdown-toggle{ id:"card_actions_#{card.id}", href: "#", title:"Card actions", data: { toggle: "dropdown"}}
               %i.icon-edit
               %span.caret
             %ul.dropdown-menu

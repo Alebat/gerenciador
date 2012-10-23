@@ -15,15 +15,15 @@ Feature: Manage Projects
   Scenario: Destroy card
     Given I am logged in
     And I on project page
-    And that project have a card
-    When I follow "Delete"
+    And this project have a card
+    When I click "Delete" card link
     Then the project must have no cards
 
   Scenario: Edit card
     Given I am logged in
     And I on project page
-    And that project have a card
-    When I follow "Edit"
+    And this project have a card
+    When I click "Edit" card link
     And I fill in "Story" with "Teste change"
     And I press "Update"
     Then I should see "Teste change"
@@ -32,6 +32,6 @@ Feature: Manage Projects
   Scenario: Move card
     Given I am logged in
     And I on project page
-    And that project have a card
-    When I follow "Doing"
-    Then the card must be moved throw columns
+    And this project have a card
+    When I move card to Doing
+    Then the card must be moved through columns

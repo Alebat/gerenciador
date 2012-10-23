@@ -1,7 +1,3 @@
-%h1 Editing card
+%h1 Edit card
 
-= render 'form'
-
-= link_to 'Show', @card
-\|
-= link_to 'Back', cards_path
+= render partial: 'form', locals: { project: @card, action: "update" }

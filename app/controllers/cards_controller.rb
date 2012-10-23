@@ -50,7 +50,7 @@ class CardsController < ApplicationController
 
     respond_to do |format|
       if @card.update_attributes(params[:card])
-        format.html { redirect_to @card, notice: 'Card was successfully updated.' }
+        format.html { redirect_to project_url(@card.project), notice: 'Card updated' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -74,17 +74,11 @@ class CardsController < ApplicationController
 
   def update_status
     @card = Card.find(params[:card])
-    puts "#################################################################"
-    p @card
-    puts "#################################################################"
-    cs = CardStatus.find(params[:status])
-    puts "#################################################################"
-    p cs
-    puts "#################################################################"
-    @card.card_status = cs
+    @card.card_status = CardStatus.find(params[:status])
     @card.save
     respond_to do |format|
       format.js
+      format.html{ redirect_to request.referer}
     end
   end
 end
