@@ -11,5 +11,5 @@ class User < ActiveRecord::Base
   has_many :projects
   has_and_belongs_to_many :collaborate_projects, class_name: Project
 
-  # validates_presence_of :name  
+  validates_presence_of :name  
 end
