@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022230343) do
+ActiveRecord::Schema.define(:version => 20121023014411) do
+
+  create_table "card_statuses", :force => true do |t|
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "cards", :force => true do |t|
+    t.text     "story"
+    t.integer  "code"
+    t.integer  "points"
+    t.integer  "project_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "card_status_id"
+  end
+
+  add_index "cards", ["project_id"], :name => "index_cards_on_project_id"
 
   create_table "projects", :force => true do |t|
     t.string   "name"

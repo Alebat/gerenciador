@@ -7,4 +7,8 @@ module ProjectsHelper
       aux
     end
   end
+
+  def collaborators
+    User.where("id <> ?",current_user)
+  end
 end

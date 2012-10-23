@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  story: MyText
+  code: 1
+  points: 1
+  project: 
+
+two:
+  story: MyText
+  code: 1
+  points: 1
+  project: 

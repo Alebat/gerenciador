@@ -1,0 +1,2 @@
+$("#card_<%= @card.id%>").remove();
+$("#<%=j fill_id(@card.card_status.status) %> >.content").append("<%=j render 'cards/card', { card: @card, project: @card.project }%>");

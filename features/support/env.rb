@@ -62,3 +62,7 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+Before do
+  CardStatus.create!([ {status: "To Do"}, {status: "Doing"}, {status: "Done"}])
+  Project.create! name: "project"
+end

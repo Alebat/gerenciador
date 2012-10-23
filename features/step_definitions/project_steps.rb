@@ -39,6 +39,11 @@ Given /^I have a project named "(.+)"$/ do |name|
 end
 
 Given /^I on project page$/ do
-  project = Project.create! name: "project"
-  visit "/projects/#{project.id}"
+  @project = Project.first
+  visit "/projects/#{@project.id}"
+end
+
+When /^I access 'project page'$/ do
+  @project = Project.first
+  visit "/projects/#{@project.id}"
 end

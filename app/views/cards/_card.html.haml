@@ -1,0 +1,31 @@
+.titled-box.rounded{ id:"card_#{card.id}" }
+  .content
+    .row-fuild 
+      .span12
+        .pull-left= "##{card.code}" if card.code
+        .pull-right
+          = card.points
+          .btn-group
+            %a.btn-small.dropdown-toggle{ href: "#", data: { toggle: "dropdown"}}
+              %i.icon-edit
+              %span.caret
+            %ul.dropdown-menu
+              %li= link_to "Edit", edit_card_path(card)
+              %li= link_to "Delete", card_path(card), method: "delete", remote: true, data: { confirm: 'Are you sure?'}        
+      .span12
+        = card.story
+    .row-fluid
+      .pull-left= card.created_at.to_date
+      .pull-right
+        .btn-group.btn-mini
+          %a.btn.dropdown-toggle{ href: "#", data: { toggle: "dropdown"}}
+            .caret
+          %ul.dropdown-menu
+            - CardStatus.all.each do |card_status|
+              %li
+                - if card_status.id == card.card_status.id
+                  = link_to "#" do
+                    %i.icon-ok
+                    = card_status.status
+                - else
+                  = link_to card_status.status, cards_update_status_path(card: card, status: card_status.id), remote: true 

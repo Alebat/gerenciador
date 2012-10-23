@@ -16,13 +16,13 @@
       #projectName
         %h1= @project.name
     .span10
-      / .content.rounded.well
-      /   .row-fluid
-      /     - CardStatus.all.each do |card_status|
-      /       = render "projects/column_cards", title: card_status.status, project: @project
+      .content.rounded.well
+        .row-fluid
+          - CardStatus.all.each do |card_status|
+            = render partial: "projects/column_cards", locals:{title: card_status.status, project: @project}
 #cardModal.modal.hide.fade
   .modal-header
     %button.close{ type:"button", data: { dismiss: "modal"}}×
     Create a card
   .modal-body
-    =# render partial: "cards/form", locals: {project: @project, action: 'create'}
+    = render partial: "cards/form", locals: {project: @project, action: 'create'}

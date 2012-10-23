@@ -27,12 +27,13 @@ end
 gem 'jquery-rails', '2.1.3'
 
 group :test do
-  gem "webrat"
-  gem "cucumber-rails"
-  gem "cucumber"
-  gem 'database_cleaner'
-  gem 'rspec-rails'
-  gem 'rspec'
+  gem "webrat", '0.7.3'
+  gem "cucumber-rails", '1.3.0'
+  gem "cucumber", '1.2.1'
+  gem 'database_cleaner', '0.9.1'
+  gem 'rspec-rails', '2.11.4'
+  gem 'rspec', '2.11.0'
+  gem 'factory_girl_rails', '4.1.0'
 end
 
 # To use ActiveModel has_secure_password

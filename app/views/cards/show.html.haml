@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Story:
+  = @card.story
+%p
+  %b Code:
+  = @card.code
+%p
+  %b Points:
+  = @card.points
+%p
+  %b Project:
+  = @card.project
+
+= link_to 'Edit', edit_card_path(@card)
+\|
+= link_to 'Back', cards_path

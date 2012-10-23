@@ -1,0 +1,4 @@
+$("#to_do >.content").append("<%=j render 'cards/card', { card: @card, project: @card.project }%>");
+$("#cardModal").modal("hide");
+$("#flash_message").html('<div class="alert alert-success"><a class="close" data-dismiss="alert">×</a><div id="flash_notice">Card created</div></div>');
+$("#flash_message > div").fadeOut(4000, "swing");
