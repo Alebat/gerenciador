@@ -1,4 +1,4 @@
-= simple_form_for @card, remote: true, html: { class: 'form-horizontal' } do |f|
+= simple_form_for @card, remote: (action=='create'), html: { class: 'form-horizontal' } do |f|
   = f.input :story
   = f.input :code, as: :string
   = f.input :points
