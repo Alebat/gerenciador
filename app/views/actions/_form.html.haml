@@ -1,0 +1,9 @@
+= simple_form_for(@action) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :activity
+    = f.association :project
+
+  .form-actions
+    = f.button :submit

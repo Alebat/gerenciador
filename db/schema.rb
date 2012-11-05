@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121023014411) do
+ActiveRecord::Schema.define(:version => 20121024144303) do
+
+  create_table "actions", :force => true do |t|
+    t.string   "activity"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "actions", ["project_id"], :name => "index_actions_on_project_id"
 
   create_table "card_statuses", :force => true do |t|
     t.string   "status"

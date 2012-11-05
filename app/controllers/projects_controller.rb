@@ -16,6 +16,8 @@ class ProjectsController < ApplicationController
   def show
     @project ||= Project.find(params[:id])
     @card ||= Card.new
+    @remote = true
+    @project_id = @project.id
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }
@@ -42,7 +44,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = current_user.projects.new params[:project]
-
+    @project.actions.new activity: "#{current_user.name} created Project named #{@project.name}"
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'New project created.' }
@@ -59,8 +61,13 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
 
+    name = @project.name
+
+    save = @project.update_attributes(params[:project])
+    @project.actions.new activity: "#{current_user.name} changed #{name} to #{@project.name}"
+
     respond_to do |format|
-      if @project.update_attributes(params[:project])
+      if save && @project.save
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else

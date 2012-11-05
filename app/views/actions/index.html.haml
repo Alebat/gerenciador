@@ -1,0 +1,12 @@
+.span4
+  .pull-right     
+    = link_to "Back", request.referer, class: "btn btn-primary"
+.span4
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Activities
+    %tbody
+      - @actions.each do |action|
+        %tr
+          %td=action.activity

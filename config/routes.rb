@@ -1,4 +1,6 @@
 Gerenciador::Application.routes.draw do
+  resources :actions
+
   get "cards/update_status/"
   resources :cards
 
@@ -8,7 +10,7 @@ Gerenciador::Application.routes.draw do
   root to: "home#index"
 
   match 'projects/leave_project/:id', to: "projects#leave_project", as: :leave_project
-  
+  match 'projects/:id/activities', to: 'actions#index', as: :activity  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

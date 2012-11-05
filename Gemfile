@@ -33,7 +33,7 @@ group :test do
   gem 'database_cleaner', '0.9.1'
   gem 'rspec-rails', '2.11.4'
   gem 'rspec', '2.11.0'
-  gem 'factory_girl_rails', '4.1.0'
+  # gem 'factory_girl_rails', '4.1.0'
 end
 
 # To use ActiveModel has_secure_password
@@ -50,5 +50,7 @@ end
 
 # To use debugger
 # gem 'debugger'
-gem 'hpricot'
-gem 'ruby_parser' 
+# gem 'hpricot'
+# gem 'ruby_parser' 
+# gem 'client_side_validations'
+# gem 'client_side_validations-simple_form'
