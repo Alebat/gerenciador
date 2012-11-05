@@ -12,6 +12,7 @@ jQuery ->
     btn = $("#new_card_submit")
     btn.prop "disabled", false
     btn.removeClass "disabled"
+    $(".error_card").remove()
 
   $("#project_collaborator_ids").select2
     width: "220px"

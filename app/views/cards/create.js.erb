@@ -1,4 +1,21 @@
-$("#to_do >.content").append("<%=j render 'cards/card', { card: @card, project: @card.project }%>");
-$("#cardModal").modal("hide");
-$("#flash_message").html('<div class="alert alert-success"><a class="close" data-dismiss="alert">×</a><div id="flash_notice">Card created</div></div>');
-$("#flash_message > div").fadeOut(4000, "swing");
+<% if @card.errors.any? %>
+  $(".error_card").remove();
+  <% if @card.errors.messages[:story] %>
+    $("#card_story").after("<span id=\"card_story_error\" class=\"help-inline error_card\"><%=@card.errors.messages[:story].first%></span>");
+  <% end %>
+  
+  <% if @card.errors.messages[:code] %>
+    $("#card_code").after("<span id=\"card_code_error\" class=\"help-inline error_card\"><%=@card.errors.messages[:code].first%></span>");
+  <% end %>
+
+
+  btn = $("#new_card_submit");
+  btn.prop( "disabled", false);
+  btn.removeClass("disabled");
+
+<% else %>
+  $("#to_do >.content").append("<%=j render 'cards/card', { card: @card, project: @card.project }%>");
+  $("#cardModal").modal("hide");
+  $("#flash_message").html('<div class="alert alert-success"><a class="close" data-dismiss="alert">×</a><div id="flash_notice">Card created</div></div>');
+  //$("#flash_message > div").fadeOut(4000, "swing");
+<% end %>
