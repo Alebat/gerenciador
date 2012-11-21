@@ -16,3 +16,9 @@ jQuery ->
 
   $("#project_collaborator_ids").select2
     width: "220px"
+  
+  $('#project_name').popover
+    animation: true,
+    placement: "right",
+    trigger: 'hover',
+    title: "<strong>Project description</strong>"

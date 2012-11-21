@@ -1,25 +1,24 @@
 .span2
-  %p=link_to "Add a card", "#cardModal", data: { toggle: "modal"}, class: "btn btn-primary"
-  %p=link_to "Edit project", edit_project_path(@project), class: "btn btn-primary" if can? :update, @project
-
-  .actions
-    .titled-box
-      .title
-        %strong= link_to "Activity", activity_path(@project), title: "See more"
-      .content
-        %ul
-          - @project.actions.first(5).each do |action|
-            %li= action.activity
+  .row
+    %p=link_to "Add a card", "#cardModal", data: { toggle: "modal"}, class: "btn btn-primary"
+    %p=link_to "Edit project", edit_project_path(@project), class: "btn btn-primary" if can? :update, @project
+  .row
+    .actions
+      .titled-box
+        .title
+          %strong= link_to "Activity", activity_path(@project), title: "See more"
+        #actions.content
+          = render partial: "actions/action", collection: @project.actions.first(5), as: :action
 .span10
   #board
     .page-header.span3
       #projectName
-        %h1= @project.name
+        %h1#project_name{"data-content" => @project.try(:description) }= @project.name
     .span10
       .content.rounded.well
         .row-fluid
           - CardStatus.all.each do |card_status|
-            = render partial: "projects/column_cards", locals:{title: card_status.status, project: @project}
+            = render partial: "projects/column_cards", locals: {title: card_status.status, project: @project}
 #cardModal.modal.hide.fade
   .modal-header
     %button.close{ type:"button", data: { dismiss: "modal"}}×
