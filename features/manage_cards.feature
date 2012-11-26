@@ -1,4 +1,4 @@
-Feature: Manage Projects
+Feature: Manage Cards
   In order to manage a card
   As an author
   I want to create and manage cards
