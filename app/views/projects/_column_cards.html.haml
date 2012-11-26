@@ -2,4 +2,4 @@
   .title
     %h2= title
   .content
-    = render partial: "cards/card", collection: project.cards.select{|card| card.card_status.status == title}, locals:{project: project}
+    = render partial: "cards/card", collection: project.cards.select{|card| card.card_status.status == title}, locals: {project: project}
