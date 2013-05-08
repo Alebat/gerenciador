@@ -51,6 +51,6 @@ end
 # To use debugger
 # gem 'debugger'
 # gem 'hpricot'
-# gem 'ruby_parser' 
+# gem 'ruby_parser'
 # gem 'client_side_validations'
 # gem 'client_side_validations-simple_form'
